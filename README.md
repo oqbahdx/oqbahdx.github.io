@@ -1,6 +1,6 @@
 
  
-# Create a simple modern portfolio HTML file
+# Create a simple modern portfolio HTML 
 
 html_content = """<!DOCTYPE html>
 <html lang="en">
