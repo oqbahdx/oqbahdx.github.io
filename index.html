@@ -91,54 +91,25 @@
       background-size: 64px 64px;
       mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black, transparent);
     }
-    .hero-tag {
-      font-family:var(--font-mono); font-size:.72rem; color:var(--accent);
-      letter-spacing:.2em; text-transform:uppercase; margin-bottom:20px;
-      opacity:0; animation: fadeUp .7s .2s forwards;
-    }
-    .hero-name {
-      font-size: clamp(3.6rem, 9vw, 8.5rem);
-      font-weight:800; line-height:.9; letter-spacing:-.03em;
-      opacity:0; animation: fadeUp .7s .35s forwards;
-    }
+    .hero-tag { font-family:var(--font-mono); font-size:.72rem; color:var(--accent); letter-spacing:.2em; text-transform:uppercase; margin-bottom:20px; opacity:0; animation: fadeUp .7s .2s forwards; }
+    .hero-name { font-size: clamp(3.6rem, 9vw, 8.5rem); font-weight:800; line-height:.9; letter-spacing:-.03em; opacity:0; animation: fadeUp .7s .35s forwards; }
     .hero-name .line2 { color:var(--accent); }
-    .hero-sub {
-      margin-top:26px;
-      font-family:var(--font-mono); font-size:clamp(.85rem,1.8vw,1rem);
-      color:var(--text-dim); font-style:italic;
-      opacity:0; animation: fadeUp .7s .5s forwards;
-    }
-    .hero-meta {
-      margin-top:40px; display:flex; gap:36px; flex-wrap:wrap;
-      opacity:0; animation: fadeUp .7s .62s forwards;
-    }
+    .hero-sub { margin-top:26px; font-family:var(--font-mono); font-size:clamp(.85rem,1.8vw,1rem); color:var(--text-dim); font-style:italic; opacity:0; animation: fadeUp .7s .5s forwards; }
+    .hero-meta { margin-top:40px; display:flex; gap:36px; flex-wrap:wrap; opacity:0; animation: fadeUp .7s .62s forwards; }
     .meta-item { display:flex; flex-direction:column; gap:4px; }
     .meta-label { font-family:var(--font-mono); font-size:.62rem; color:var(--muted); letter-spacing:.15em; text-transform:uppercase; }
     .meta-value { font-size:1rem; font-weight:700; color:var(--text); }
-    .hero-cta {
-      margin-top:48px; display:flex; gap:14px; flex-wrap:wrap;
-      opacity:0; animation: fadeUp .7s .75s forwards;
-    }
-    .btn {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:13px 26px; border-radius:4px;
-      font-family:var(--font-mono); font-size:.78rem;
-      letter-spacing:.1em; text-transform:uppercase;
-      text-decoration:none; transition:all .22s; cursor:none; border:none;
-    }
+    .hero-cta { margin-top:48px; display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation: fadeUp .7s .75s forwards; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:4px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; transition:all .22s; cursor:none; border:none; }
     .btn-primary { background:var(--accent); color:#000; }
     .btn-primary:hover { background:#fff; transform:translateY(-2px); }
     .btn-outline { border:1px solid var(--border); color:var(--text-dim); background:transparent; }
     .btn-outline:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
 
-    /* ── Section shell ── */
+    /* ── Section ── */
     .section-inner { max-width:1120px; margin:0 auto; padding:96px 52px; position:relative; z-index:1; }
     .section-header { margin-bottom:56px; }
-    .section-eyebrow {
-      font-family:var(--font-mono); font-size:.68rem;
-      letter-spacing:.22em; text-transform:uppercase;
-      display:inline-flex; align-items:center; gap:10px; margin-bottom:14px;
-    }
+    .section-eyebrow { font-family:var(--font-mono); font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px; margin-bottom:14px; }
     .section-eyebrow .dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
     .section-title { font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:800; line-height:1.08; letter-spacing:-.025em; }
     .section-desc { margin-top:10px; font-family:var(--font-mono); font-size:.82rem; color:var(--text-dim); font-style:italic; max-width:480px; }
@@ -150,13 +121,14 @@
     .tag-orange { color:var(--accent2); border:1px solid rgba(255,107,53,.25); }
     .tag-purple { color:var(--accent3); border:1px solid rgba(167,139,250,.25);}
 
-    /* ══ 01 — MOBILE ══ */
+    /* ══ MOBILE SECTION ══ */
     #mobile { background:var(--surface); }
     .mobile-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:20px; }
     .mobile-card {
       background:var(--bg); border:1px solid var(--border);
       border-radius:10px; padding:28px; position:relative; overflow:hidden;
       transition:border-color .25s, transform .25s; cursor:none;
+      display:flex; flex-direction:column;
     }
     .mobile-card::before {
       content:''; position:absolute; top:0; left:0; right:0; height:2px;
@@ -164,22 +136,186 @@
     }
     .mobile-card:hover { border-color:rgba(0,229,255,.3); transform:translateY(-4px); }
     .mobile-card:hover::before { transform:scaleX(1); }
-    .card-icon { width:40px; height:40px; border-radius:8px; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.2); display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:1.1rem; }
+    .card-icon { width:40px; height:40px; border-radius:8px; background:rgba(0,229,255,.1); border:1px solid rgba(0,229,255,.2); display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:1.1rem; flex-shrink:0; }
     .card-title { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
-    .card-desc { font-family:var(--font-mono); font-size:.78rem; color:var(--text-dim); font-style:italic; line-height:1.7; margin-bottom:16px; }
-    .card-link { font-family:var(--font-mono); font-size:.7rem; color:var(--muted); text-decoration:none; letter-spacing:.08em; display:inline-flex; align-items:center; gap:6px; transition:color .2s; cursor:none; }
-    .card-link:hover { color:var(--accent); }
+    .card-desc { font-family:var(--font-mono); font-size:.78rem; color:var(--text-dim); font-style:italic; line-height:1.7; margin-bottom:16px; flex:1; }
 
-    /* ══ 02 — WEB ══ */
+    /* Card footer with links */
+    .card-footer { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:auto; }
+    .card-link {
+      font-family:var(--font-mono); font-size:.68rem; color:var(--muted);
+      text-decoration:none; letter-spacing:.08em;
+      display:inline-flex; align-items:center; gap:5px;
+      transition:color .2s; cursor:none;
+      padding:6px 0;
+    }
+    .card-link:hover { color:var(--accent); }
+    .card-divider { width:1px; height:14px; background:var(--border); flex-shrink:0; }
+
+    /* Gallery trigger button */
+    .gallery-btn {
+      font-family:var(--font-mono); font-size:.68rem;
+      color:var(--muted); letter-spacing:.08em;
+      display:inline-flex; align-items:center; gap:5px;
+      background:none; border:none; padding:6px 0; cursor:none;
+      transition:color .2s;
+    }
+    .gallery-btn:hover { color:var(--accent); }
+    .gallery-btn svg { flex-shrink:0; }
+
+    /* freelance label */
+    .card-freelance { font-family:var(--font-mono); font-size:.65rem; color:var(--muted); margin-top:10px; }
+
+    /* ══ GALLERY MODAL ══ */
+    .gallery-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(4, 7, 12, 0.96);
+      backdrop-filter: blur(20px);
+      display: flex; flex-direction: column;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .gallery-overlay.open {
+      opacity: 1; pointer-events: all;
+    }
+
+    /* Modal header */
+    .gallery-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .gallery-title-wrap { display:flex; flex-direction:column; gap:4px; }
+    .gallery-app-name { font-size:1.2rem; font-weight:800; letter-spacing:-.01em; }
+    .gallery-label { font-family:var(--font-mono); font-size:.65rem; color:var(--accent); letter-spacing:.18em; text-transform:uppercase; }
+    .gallery-close {
+      width:40px; height:40px; border-radius:50%;
+      border:1px solid var(--border); background:none;
+      color:var(--text-dim); font-size:1.2rem;
+      display:flex; align-items:center; justify-content:center;
+      cursor:none; transition:all .2s;
+    }
+    .gallery-close:hover { border-color:var(--accent); color:var(--accent); background:rgba(0,229,255,.06); }
+
+    /* Gallery grid */
+    .gallery-body {
+      flex: 1; overflow-y: auto; padding: 32px 40px 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    /* Placeholder image tile — phone aspect ratio */
+    .gallery-thumb {
+      aspect-ratio: 9 / 18;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      background: var(--surface);
+      cursor:none;
+      transition: transform .22s, border-color .22s, box-shadow .22s;
+    }
+    .gallery-thumb:hover {
+      transform: scale(1.04) translateY(-3px);
+      border-color: rgba(0,229,255,.45);
+      box-shadow: 0 12px 40px rgba(0,229,255,.12);
+    }
+    .gallery-thumb img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .3s;
+    }
+    .gallery-thumb:hover img { transform: scale(1.06); }
+
+    /* Placeholder SVG shown when src is empty/placeholder */
+    .gallery-thumb .placeholder {
+      position: absolute; inset:0;
+      display: flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:10px;
+      background: linear-gradient(160deg, #0e1420 0%, #111827 100%);
+    }
+    .placeholder-phone {
+      width: 36px; height: 64px; border-radius:6px;
+      border: 2px solid rgba(0,229,255,.2);
+      position:relative; overflow:hidden;
+    }
+    .placeholder-phone::before {
+      content:''; position:absolute; top:6px; left:50%;
+      transform:translateX(-50%);
+      width:10px; height:2px; border-radius:1px;
+      background:rgba(0,229,255,.3);
+    }
+    .placeholder-phone::after {
+      content:''; position:absolute;
+      top:12px; left:4px; right:4px; bottom:6px;
+      background:repeating-linear-gradient(
+        0deg,
+        rgba(0,229,255,.04) 0px, rgba(0,229,255,.04) 1px,
+        transparent 1px, transparent 8px
+      );
+      border-radius:2px;
+    }
+    .placeholder-index {
+      font-family:var(--font-mono); font-size:.6rem;
+      color:var(--muted); letter-spacing:.12em;
+    }
+    /* Replace-hint badge */
+    .replace-hint {
+      position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+      font-family:var(--font-mono); font-size:.52rem; color:var(--muted);
+      background:rgba(8,12,16,.85); padding:3px 8px; border-radius:3px;
+      white-space:nowrap; letter-spacing:.06em; pointer-events:none;
+    }
+
+    /* Lightbox (click a thumb to view full) */
+    .lightbox {
+      position:fixed; inset:0; z-index:2000;
+      background:rgba(4,7,12,.97);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none;
+      transition:opacity .25s;
+    }
+    .lightbox.open { opacity:1; pointer-events:all; }
+    .lightbox img {
+      max-width:90vw; max-height:90vh;
+      border-radius:16px;
+      transform:scale(.96); transition:transform .3s;
+      object-fit:contain;
+    }
+    .lightbox.open img { transform:scale(1); }
+    .lightbox-close {
+      position:absolute; top:24px; right:24px;
+      width:44px; height:44px; border-radius:50%;
+      border:1px solid var(--border); background:none;
+      color:var(--text-dim); font-size:1.4rem;
+      display:flex; align-items:center; justify-content:center;
+      cursor:none; transition:all .2s;
+    }
+    .lightbox-close:hover { border-color:var(--accent); color:var(--accent); }
+    .lightbox-nav {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border-radius:50%;
+      border:1px solid var(--border); background:rgba(8,12,16,.7);
+      color:var(--text-dim); font-size:1.2rem;
+      display:flex; align-items:center; justify-content:center;
+      cursor:none; transition:all .2s; backdrop-filter:blur(8px);
+    }
+    .lightbox-nav:hover { border-color:var(--accent); color:var(--accent); }
+    .lightbox-prev { left:24px; }
+    .lightbox-next { right:24px; }
+    .lightbox-counter {
+      position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+      font-family:var(--font-mono); font-size:.72rem; color:var(--muted);
+      letter-spacing:.12em;
+    }
+
+    /* ══ WEB SECTION ══ */
     #web { background:var(--bg); }
     .web-list { display:flex; flex-direction:column; }
-    .web-item {
-      display:grid; grid-template-columns:52px 1fr 160px;
-      align-items:center; gap:28px;
-      padding:26px 20px; margin:0 -20px;
-      border-bottom:1px solid var(--border);
-      border-radius:6px; transition:all .2s; cursor:none;
-    }
+    .web-item { display:grid; grid-template-columns:52px 1fr 160px; align-items:center; gap:28px; padding:26px 20px; margin:0 -20px; border-bottom:1px solid var(--border); border-radius:6px; transition:all .2s; cursor:none; }
     .web-item:first-child { border-top:1px solid var(--border); }
     .web-item:hover { background:rgba(255,107,53,.03); padding-left:30px; }
     .web-item:hover .web-info h3 { color:var(--accent2); }
@@ -192,22 +328,18 @@
     .web-links a:hover { color:var(--accent2); }
     .web-note { font-family:var(--font-mono); font-size:.68rem; color:var(--muted); text-align:right; }
 
-    /* ══ 03 — GAMES ══ */
+    /* ══ GAMES SECTION ══ */
     #games { background:var(--surface); }
     .games-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
     .game-card { border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color .25s, transform .25s; cursor:none; }
     .game-card:hover { border-color:rgba(167,139,250,.4); transform:translateY(-5px); }
-    .game-card-header {
-      padding:32px; min-height:150px;
-      display:flex; flex-direction:column; justify-content:space-between;
-      position:relative; overflow:hidden;
-    }
+    .game-card-header { padding:32px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
     .game-bg-pattern { position:absolute; inset:0; opacity:.07; background-image:repeating-linear-gradient(45deg,currentColor 0,currentColor 1px,transparent 0,transparent 50%); background-size:12px 12px; }
     .game-card-body { padding:24px 28px 28px; background:var(--bg); }
     .game-card-body h3 { font-size:1.15rem; font-weight:700; margin-bottom:8px; }
     .game-card-body p { font-family:var(--font-mono); font-size:.78rem; color:var(--text-dim); font-style:italic; line-height:1.7; margin-bottom:14px; }
     .game-badge { display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:.65rem; padding:5px 12px; border-radius:99px; letter-spacing:.05em; }
-    .badge-wip  { background:rgba(167,139,250,.12); color:var(--accent3); border:1px solid rgba(167,139,250,.25); }
+    .badge-wip { background:rgba(167,139,250,.12); color:var(--accent3); border:1px solid rgba(167,139,250,.25); }
 
     /* ── About ── */
     #about { background:var(--bg); }
@@ -255,6 +387,9 @@
       .web-links { display:none; }
       .contact-box { padding:36px 24px; }
       .hero-meta { gap:24px; }
+      .gallery-header { padding:18px 20px; }
+      .gallery-body { padding:20px; }
+      .gallery-grid { grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); gap:8px; }
     }
   </style>
 </head>
@@ -262,6 +397,29 @@
 
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
+
+<!-- ══ GALLERY MODAL ══ -->
+<div class="gallery-overlay" id="galleryOverlay">
+  <div class="gallery-header">
+    <div class="gallery-title-wrap">
+      <span class="gallery-label">Screenshots</span>
+      <span class="gallery-app-name" id="galleryAppName">App Name</span>
+    </div>
+    <button class="gallery-close" id="galleryClose" aria-label="Close gallery">✕</button>
+  </div>
+  <div class="gallery-body">
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+  <img src="" alt="Screenshot" id="lightboxImg"/>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
 
 <!-- Nav -->
 <nav>
@@ -282,18 +440,9 @@
   <h1 class="hero-name">Oqbah<br/><span class="line2">Mohammed.</span></h1>
   <p class="hero-sub">// Flutter · .NET · Angular · AI/LLM Engineering</p>
   <div class="hero-meta">
-    <div class="meta-item">
-      <span class="meta-label">Experience</span>
-      <span class="meta-value">5+ Years</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Stack</span>
-      <span class="meta-value">Mobile · Web · AI</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Current</span>
-      <span class="meta-value">Databand IT</span>
-    </div>
+    <div class="meta-item"><span class="meta-label">Experience</span><span class="meta-value">5+ Years</span></div>
+    <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Mobile · Web · AI</span></div>
+    <div class="meta-item"><span class="meta-label">Current</span><span class="meta-value">Databand IT</span></div>
   </div>
   <div class="hero-cta">
     <a href="#mobile" class="btn btn-primary">View Work →</a>
@@ -314,6 +463,7 @@
     </div>
     <div class="mobile-grid">
 
+      <!-- Hoppies -->
       <div class="mobile-card reveal">
         <div class="card-icon">🏍️</div>
         <div class="card-title">Hoppies Club</div>
@@ -323,9 +473,20 @@
           <span class="tag tag-blue">Dart</span>
           <span class="tag tag-orange">Play Store</span>
         </div>
-        <a href="https://play.google.com/store/apps/details?id=motorcycleecho.databand.sa" target="_blank" class="card-link">↗ View on Play Store</a>
+        <div class="card-footer">
+          <a href="https://play.google.com/store/apps/details?id=motorcycleecho.databand.sa" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Play Store
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Hoppies Club', 'hoppies')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
       </div>
 
+      <!-- Meshwark Rider -->
       <div class="mobile-card reveal">
         <div class="card-icon">🚗</div>
         <div class="card-title">Meshwark Rider</div>
@@ -335,9 +496,20 @@
           <span class="tag tag-blue">SignalR</span>
           <span class="tag tag-orange">Maps API</span>
         </div>
-        <a href="https://github.com/oqbahdx/mashawerk_rider" target="_blank" class="card-link">↗ GitHub</a>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/mashawerk_rider" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Meshwark Rider', 'meshwark-rider')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
       </div>
 
+      <!-- Meshwark Driver -->
       <div class="mobile-card reveal">
         <div class="card-icon">🚘</div>
         <div class="card-title">Meshwark Driver</div>
@@ -347,9 +519,20 @@
           <span class="tag tag-blue">SignalR</span>
           <span class="tag tag-orange">ASP.NET</span>
         </div>
-        <a href="https://github.com/oqbahdx/meshwark_driver" target="_blank" class="card-link">↗ GitHub</a>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/meshwark_driver" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Meshwark Driver', 'meshwark-driver')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
       </div>
 
+      <!-- Wash Station -->
       <div class="mobile-card reveal">
         <div class="card-icon">🚿</div>
         <div class="card-title">Wash Station</div>
@@ -358,9 +541,20 @@
           <span class="tag tag-blue">Flutter</span>
           <span class="tag tag-blue">Dart</span>
         </div>
-        <a href="https://github.com/oqbahdx/wash-station-clients" target="_blank" class="card-link">↗ GitHub</a>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/wash-station-clients" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Wash Station', 'wash-station')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
       </div>
 
+      <!-- Kidney Care -->
       <div class="mobile-card reveal">
         <div class="card-icon">🏥</div>
         <div class="card-title">Kidney Care</div>
@@ -370,9 +564,16 @@
           <span class="tag tag-orange">Healthcare</span>
           <span class="tag tag-blue">Firebase</span>
         </div>
-        <span style="font-family:var(--font-mono);font-size:.68rem;color:var(--muted)">Freelance · 2020–2024</span>
+        <div class="card-footer">
+          <button class="gallery-btn" onclick="openGallery('Kidney Care', 'kidney-care')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+        <div class="card-freelance">Freelance · 2020–2024</div>
       </div>
 
+      <!-- Data Encryption -->
       <div class="mobile-card reveal">
         <div class="card-icon">🔒</div>
         <div class="card-title">Data Encryption Tool</div>
@@ -382,7 +583,13 @@
           <span class="tag tag-orange">Security</span>
           <span class="tag tag-blue">Cryptography</span>
         </div>
-        <span style="font-family:var(--font-mono);font-size:.68rem;color:var(--muted)">Freelance · 2020–2024</span>
+        <div class="card-footer">
+          <button class="gallery-btn" onclick="openGallery('Data Encryption Tool', 'encryption-tool')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+        <div class="card-freelance">Freelance · 2020–2024</div>
       </div>
 
     </div>
@@ -400,71 +607,42 @@
       <p class="section-desc">Enterprise dashboards, LIMS systems, and e-invoicing backends with Angular & ASP.NET.</p>
     </div>
     <div class="web-list">
-
       <div class="web-item reveal">
         <span class="web-num">01</span>
         <div class="web-info">
           <h3>Hoppies — Web Platform</h3>
           <p>Website for the Hoppies Club community — content hub, events, and resources for motorcycle enthusiasts.</p>
-          <div class="card-tags">
-            <span class="tag tag-orange">ASP.NET</span>
-            <span class="tag tag-orange">Angular</span>
-          </div>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">Angular</span></div>
         </div>
-        <div class="web-links">
-          <a href="https://bikersband.com" target="_blank">↗ bikersband.com</a>
-        </div>
+        <div class="web-links"><a href="https://bikersband.com" target="_blank">↗ bikersband.com</a></div>
       </div>
-
       <div class="web-item reveal">
         <span class="web-num">02</span>
         <div class="web-info">
           <h3>Enterprise Admin Dashboard</h3>
-          <p>Feature-rich management panel with advanced DevExpress reports, data grids, and analytics modules — integrated into enterprise systems at Databand IT Solutions.</p>
-          <div class="card-tags">
-            <span class="tag tag-orange">Angular</span>
-            <span class="tag tag-orange">ASP.NET Core</span>
-            <span class="tag tag-orange">DevExpress</span>
-            <span class="tag tag-orange">EF Core</span>
-          </div>
+          <p>Feature-rich management panel with advanced DevExpress reports, data grids, and analytics — integrated into enterprise systems at Databand IT Solutions.</p>
+          <div class="card-tags"><span class="tag tag-orange">Angular</span><span class="tag tag-orange">ASP.NET Core</span><span class="tag tag-orange">DevExpress</span><span class="tag tag-orange">EF Core</span></div>
         </div>
-        <div class="web-links">
-          <span class="web-note">Internal / NDA</span>
-        </div>
+        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
       </div>
-
       <div class="web-item reveal">
         <span class="web-num">03</span>
         <div class="web-info">
           <h3>LIMS System</h3>
-          <p>Laboratory Information Management System — new feature implementation, workflow improvements, and backend performance optimisation for a production system.</p>
-          <div class="card-tags">
-            <span class="tag tag-orange">ASP.NET MVC</span>
-            <span class="tag tag-orange">FastReport</span>
-            <span class="tag tag-orange">SQL Server</span>
-          </div>
+          <p>Laboratory Information Management System — new features, workflow improvements, and backend performance optimisation for a production system.</p>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET MVC</span><span class="tag tag-orange">FastReport</span><span class="tag tag-orange">SQL Server</span></div>
         </div>
-        <div class="web-links">
-          <span class="web-note">Databand IT Solutions</span>
-        </div>
+        <div class="web-links"><span class="web-note">Databand IT Solutions</span></div>
       </div>
-
       <div class="web-item reveal">
         <span class="web-num">04</span>
         <div class="web-info">
           <h3>ZATCA E-Invoicing Integration</h3>
-          <p>Saudi Arabia e-invoicing compliance system — generating, validating, and submitting invoices per ZATCA Phase 2 regulations.</p>
-          <div class="card-tags">
-            <span class="tag tag-orange">ASP.NET</span>
-            <span class="tag tag-orange">ZATCA</span>
-            <span class="tag tag-orange">C#</span>
-          </div>
+          <p>Saudi Arabia e-invoicing compliance — generating, validating, and submitting invoices per ZATCA Phase 2 regulations.</p>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">ZATCA</span><span class="tag tag-orange">C#</span></div>
         </div>
-        <div class="web-links">
-          <span class="web-note">Internal / NDA</span>
-        </div>
+        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -480,7 +658,6 @@
       <p class="section-desc">Arabic-first educational mini-games celebrating Sudanese culture — Flutter with full RTL support.</p>
     </div>
     <div class="games-grid">
-
       <div class="game-card reveal">
         <div class="game-card-header" style="background:linear-gradient(135deg,#1a0a2e,#2d1b4e);color:var(--accent3);">
           <div class="game-bg-pattern"></div>
@@ -491,14 +668,9 @@
           <span class="game-badge badge-wip">⚡ In Development</span>
           <h3 style="margin-top:12px">من أنا؟ — Who Am I?</h3>
           <p>Identify Sudanese historical figures, landmarks, and icons through progressive Arabic clues.</p>
-          <div class="card-tags">
-            <span class="tag tag-purple">Flutter</span>
-            <span class="tag tag-purple">Arabic / RTL</span>
-            <span class="tag tag-purple">Game Logic</span>
-          </div>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Game Logic</span></div>
         </div>
       </div>
-
       <div class="game-card reveal">
         <div class="game-card-header" style="background:linear-gradient(135deg,#0a1f1a,#0d3329);color:#34d399;">
           <div class="game-bg-pattern"></div>
@@ -509,14 +681,9 @@
           <span class="game-badge badge-wip">⚡ In Development</span>
           <h3 style="margin-top:12px">ابحث عن المدن — Find the Cities</h3>
           <p>Arabic word search grid featuring Sudanese city names — learn geography through timed puzzle gameplay.</p>
-          <div class="card-tags">
-            <span class="tag tag-purple">Flutter</span>
-            <span class="tag tag-purple">CustomPainter</span>
-            <span class="tag tag-purple">Arabic UI</span>
-          </div>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">CustomPainter</span><span class="tag tag-purple">Arabic UI</span></div>
         </div>
       </div>
-
       <div class="game-card reveal">
         <div class="game-card-header" style="background:linear-gradient(135deg,#1f1206,#3d2510);color:#fb923c;">
           <div class="game-bg-pattern"></div>
@@ -527,14 +694,9 @@
           <span class="game-badge badge-wip">⚡ In Development</span>
           <h3 style="margin-top:12px">مين غنّاها؟ — Who Sang It?</h3>
           <p>Identify Sudanese singers from audio clips and lyrics in this music knowledge quiz game.</p>
-          <div class="card-tags">
-            <span class="tag tag-purple">Flutter</span>
-            <span class="tag tag-purple">Audio Player</span>
-            <span class="tag tag-purple">Quiz Engine</span>
-          </div>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Audio Player</span><span class="tag tag-purple">Quiz Engine</span></div>
         </div>
       </div>
-
       <div class="game-card reveal">
         <div class="game-card-header" style="background:linear-gradient(135deg,#1f0a0a,#3d1515);color:#f87171;">
           <div class="game-bg-pattern"></div>
@@ -544,15 +706,10 @@
         <div class="game-card-body">
           <span class="game-badge badge-wip">⚡ In Development</span>
           <h3 style="margin-top:12px">أكلة من وين؟ — Where's This Dish From?</h3>
-          <p>Guess the Sudanese region behind each traditional dish — explore the country's culinary diversity.</p>
-          <div class="card-tags">
-            <span class="tag tag-purple">Flutter</span>
-            <span class="tag tag-purple">Arabic / RTL</span>
-            <span class="tag tag-purple">Cultural</span>
-          </div>
+          <p>Guess the Sudanese region behind each traditional dish — explore culinary diversity through play.</p>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Cultural</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -570,8 +727,8 @@
       <div class="about-text">
         <p>I'm <strong>Oqbah Mohammed</strong>, a full-stack developer from Sudan with a Bachelor's in Software Engineering from Mashreq University (2020).</p>
         <p>My core stack is <strong>Flutter/Dart</strong> for mobile, paired with <strong>ASP.NET Core</strong> and <strong>Angular</strong> on the web. Currently building enterprise systems at <strong>Databand IT Solutions</strong>.</p>
-        <p>Actively expanding into <strong>AI/LLM engineering</strong> — working with the Anthropic API, LangChain, and RAG pipelines. My Flutter background gives me a unique edge in shipping AI-powered mobile products.</p>
-        <p>Passionate about technology that serves the <strong>Arabic-speaking world</strong> and Sudanese culture — from the games above to media content in Sudanese dialect.</p>
+        <p>Actively expanding into <strong>AI/LLM engineering</strong> — working with the Anthropic API, LangChain, and RAG pipelines.</p>
+        <p>Passionate about technology that serves the <strong>Arabic-speaking world</strong> and Sudanese culture.</p>
       </div>
       <div class="skills-wrap">
         <div class="skill-row">Flutter / Dart <span>5 yrs</span></div>
@@ -623,14 +780,11 @@
 
 <footer>
   <p>© 2026 Oqbah Mohammed · oqbahdx@gmail.com</p>
-  <div class="status">
-    <span class="status-dot"></span>
-    Available for new projects
-  </div>
+  <div class="status"><span class="status-dot"></span>Available for new projects</div>
 </footer>
 
 <script>
-  // Cursor
+  /* ── Cursor ── */
   const cursor = document.getElementById('cursor');
   const ring   = document.getElementById('cursor-ring');
   let mx=0, my=0, rx=0, ry=0;
@@ -643,14 +797,192 @@
   })();
   document.querySelectorAll('a,button,.mobile-card,.game-card,.web-item,.skill-row').forEach(el=>{
     el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2.2)'; ring.style.width='52px'; ring.style.height='52px'; });
-    el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)';   ring.style.width='34px'; ring.style.height='34px'; });
+    el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.width='34px'; ring.style.height='34px'; });
   });
 
-  // Scroll reveal
+  /* ── Scroll reveal ── */
   const io = new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   },{ threshold:0.1 });
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ══════════════════════════════════════════
+     GALLERY DATA
+     To replace a placeholder with a real image:
+       Change  src: ''
+       to      src: 'images/hoppies/screen1.png'
+     (or any relative/absolute path you like)
+  ══════════════════════════════════════════ */
+  const galleryData = {
+    'hoppies': {
+      count: 6,
+      images: [
+        { src: '', alt: 'Hoppies – Home screen' },
+        { src: '', alt: 'Hoppies – Riders feed' },
+        { src: '', alt: 'Hoppies – Event page' },
+        { src: '', alt: 'Hoppies – Safety tips' },
+        { src: '', alt: 'Hoppies – User profile' },
+        { src: '', alt: 'Hoppies – Map view' },
+      ]
+    },
+    'meshwark-rider': {
+      count: 6,
+      images: [
+        { src: '', alt: 'Meshwark Rider – Splash' },
+        { src: '', alt: 'Meshwark Rider – Request ride' },
+        { src: '', alt: 'Meshwark Rider – Live map' },
+        { src: '', alt: 'Meshwark Rider – Trip summary' },
+        { src: '', alt: 'Meshwark Rider – Payment' },
+        { src: '', alt: 'Meshwark Rider – History' },
+      ]
+    },
+    'meshwark-driver': {
+      count: 5,
+      images: [
+        { src: '', alt: 'Meshwark Driver – Home' },
+        { src: '', alt: 'Meshwark Driver – Incoming ride' },
+        { src: '', alt: 'Meshwark Driver – Navigation' },
+        { src: '', alt: 'Meshwark Driver – Earnings' },
+        { src: '', alt: 'Meshwark Driver – Settings' },
+      ]
+    },
+    'wash-station': {
+      count: 4,
+      images: [
+        { src: '', alt: 'Wash Station – Dashboard' },
+        { src: '', alt: 'Wash Station – Book service' },
+        { src: '', alt: 'Wash Station – Track status' },
+        { src: '', alt: 'Wash Station – History' },
+      ]
+    },
+    'kidney-care': {
+      count: 5,
+      images: [
+        { src: '', alt: 'Kidney Care – Home' },
+        { src: '', alt: 'Kidney Care – Patient record' },
+        { src: '', alt: 'Kidney Care – Medication' },
+        { src: '', alt: 'Kidney Care – Reports' },
+        { src: '', alt: 'Kidney Care – Settings' },
+      ]
+    },
+    'encryption-tool': {
+      count: 4,
+      images: [
+        { src: '', alt: 'Encryption Tool – Home' },
+        { src: '', alt: 'Encryption Tool – Encrypt' },
+        { src: '', alt: 'Encryption Tool – Decrypt' },
+        { src: '', alt: 'Encryption Tool – Key management' },
+      ]
+    },
+  };
+
+  /* ── Gallery state ── */
+  let currentImages = [];
+  let lightboxIndex = 0;
+
+  /* ── Build placeholder thumb ── */
+  function buildThumb(item, idx) {
+    const div = document.createElement('div');
+    div.className = 'gallery-thumb';
+    div.setAttribute('data-index', idx);
+
+    if (item.src) {
+      // Real image
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = item.alt;
+      div.appendChild(img);
+    } else {
+      // Placeholder
+      const ph = document.createElement('div');
+      ph.className = 'placeholder';
+      ph.innerHTML = `
+        <div class="placeholder-phone"></div>
+        <span class="placeholder-index">screen_${String(idx+1).padStart(2,'0')}</span>
+      `;
+      div.appendChild(ph);
+
+      const hint = document.createElement('div');
+      hint.className = 'replace-hint';
+      hint.textContent = 'replace with screenshot';
+      div.appendChild(hint);
+    }
+
+    div.addEventListener('click', ()=> openLightbox(idx));
+    return div;
+  }
+
+  /* ── Open gallery modal ── */
+  function openGallery(appName, key) {
+    const data   = galleryData[key] || { images: [] };
+    currentImages = data.images;
+
+    document.getElementById('galleryAppName').textContent = appName;
+
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+    currentImages.forEach((item, idx)=> grid.appendChild(buildThumb(item, idx)));
+
+    const overlay = document.getElementById('galleryOverlay');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  /* ── Close gallery modal ── */
+  function closeGallery() {
+    document.getElementById('galleryOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('galleryClose').addEventListener('click', closeGallery);
+  document.getElementById('galleryOverlay').addEventListener('click', e=>{
+    if (e.target === e.currentTarget) closeGallery();
+  });
+
+  /* ── Lightbox ── */
+  function openLightbox(idx) {
+    lightboxIndex = idx;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function updateLightbox() {
+    const item = currentImages[lightboxIndex];
+    const img  = document.getElementById('lightboxImg');
+    // Show placeholder SVG if no real src
+    if (item.src) {
+      img.src = item.src;
+      img.style.display = '';
+    } else {
+      // Generate an inline placeholder SVG for the lightbox
+      img.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='640' viewBox='0 0 320 640'%3E%3Crect width='320' height='640' fill='%230e1420'/%3E%3Crect x='120' y='220' width='80' height='140' rx='10' fill='none' stroke='%2300e5ff' stroke-width='2' stroke-opacity='.3'/%3E%3Crect x='133' y='235' width='54' height='110' rx='3' fill='%2300e5ff' fill-opacity='.05'/%3E%3Ctext x='160' y='400' text-anchor='middle' font-family='monospace' font-size='12' fill='%234a5568'%3Escreen_${String(lightboxIndex+1).padStart(2,'0')}%3C/text%3E%3Ctext x='160' y='420' text-anchor='middle' font-family='monospace' font-size='10' fill='%234a5568'%3Ereplace with screenshot%3C/text%3E%3C/svg%3E`;
+    }
+    document.getElementById('lightboxCounter').textContent =
+      `${lightboxIndex + 1} / ${currentImages.length}`;
+  }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', ()=>{
+    lightboxIndex = (lightboxIndex - 1 + currentImages.length) % currentImages.length;
+    updateLightbox();
+  });
+  document.getElementById('lightboxNext').addEventListener('click', ()=>{
+    lightboxIndex = (lightboxIndex + 1) % currentImages.length;
+    updateLightbox();
+  });
+  document.getElementById('lightbox').addEventListener('click', e=>{
+    if (e.target === e.currentTarget) closeLightbox();
+  });
+  // Keyboard nav
+  document.addEventListener('keydown', e=>{
+    const lb = document.getElementById('lightbox');
+    const ov = document.getElementById('galleryOverlay');
+    if (e.key === 'Escape') { closeLightbox(); closeGallery(); }
+    if (lb.classList.contains('open')) {
+      if (e.key === 'ArrowLeft')  { lightboxIndex = (lightboxIndex-1+currentImages.length)%currentImages.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { lightboxIndex = (lightboxIndex+1)%currentImages.length; updateLightbox(); }
+    }
+  });
 </script>
 </body>
 </html>
