@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oqbah Mohammed — Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ══ GALLERY MODAL ══ -->
+<div class="gallery-overlay" id="galleryOverlay">
+  <div class="gallery-header">
+    <div class="gallery-title-wrap">
+      <span class="gallery-label">Screenshots</span>
+      <span class="gallery-app-name" id="galleryAppName">App Name</span>
+    </div>
+    <button class="gallery-close" id="galleryClose" aria-label="Close gallery">✕</button>
+  </div>
+  <div class="gallery-body">
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+  <img src="" alt="Screenshot" id="lightboxImg"/>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <span class="nav-logo">OQB</span>
+  <ul class="nav-links">
+    <li><a href="#mobile">Mobile</a></li>
+    <li><a href="#web">Web</a></li>
+    <li><a href="#games">Games</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <p class="hero-tag">Full-Stack Developer · Sudan</p>
+  <h1 class="hero-name">Oqbah<br/><span class="line2">Mohammed.</span></h1>
+  <p class="hero-sub">// Flutter · .NET · Angular · AI/LLM Engineering</p>
+  <div class="hero-meta">
+    <div class="meta-item"><span class="meta-label">Experience</span><span class="meta-value">5+ Years</span></div>
+    <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Mobile · Web · AI</span></div>
+    <div class="meta-item"><span class="meta-label">Current</span><span class="meta-value">Databand IT</span></div>
+  </div>
+  <div class="hero-cta">
+    <a href="#mobile" class="btn btn-primary">View Work →</a>
+    <a href="https://github.com/oqbahdx" target="_blank" class="btn btn-outline">GitHub</a>
+    <a href="https://www.linkedin.com/in/oqbah-dx-25b9951b1" target="_blank" class="btn btn-outline">LinkedIn</a>
+  </div>
+</section>
+
+<!-- ══ 01 MOBILE ══ -->
+<section id="mobile">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="color:var(--accent)">
+        <span class="dot" style="background:var(--accent)"></span> 01 — Mobile Applications
+      </div>
+      <h2 class="section-title">Built for the pocket.</h2>
+      <p class="section-desc">Cross-platform Flutter apps — from ride-sharing to healthcare, delivered end-to-end.</p>
+    </div>
+    <div class="mobile-grid">
+
+      <!-- Hoppies -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🏍️</div>
+        <div class="card-title">Hoppies Club</div>
+        <div class="card-desc">Community app for motorcycle enthusiasts — adventure planning, safety education, and rider networking. Live on Play Store.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-blue">Dart</span>
+          <span class="tag tag-orange">Play Store</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://play.google.com/store/apps/details?id=motorcycleecho.databand.sa" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Play Store
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Hoppies Club', 'hoppies')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+      </div>
+
+      <!-- Meshwark Rider -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🚗</div>
+        <div class="card-title">Meshwark Rider</div>
+        <div class="card-desc">Real-time ride-hailing for passengers — live map tracking, booking flow, and seamless payment. Uber-style architecture in Flutter.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-blue">SignalR</span>
+          <span class="tag tag-orange">Maps API</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/mashawerk_rider" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Meshwark Rider', 'meshwark-rider')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+      </div>
+
+      <!-- Meshwark Driver -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🚘</div>
+        <div class="card-title">Meshwark Driver</div>
+        <div class="card-desc">Driver-side companion — ride management, real-time location broadcasting, earnings tracking, and status controls.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-blue">SignalR</span>
+          <span class="tag tag-orange">ASP.NET</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/meshwark_driver" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Meshwark Driver', 'meshwark-driver')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+      </div>
+
+      <!-- Wash Station -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🚿</div>
+        <div class="card-title">Wash Station</div>
+        <div class="card-desc">Car wash service management app — track wash cycles, manage bookings, and view service history efficiently.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-blue">Dart</span>
+        </div>
+        <div class="card-footer">
+          <a href="https://github.com/oqbahdx/wash-station-clients" target="_blank" class="card-link">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <div class="card-divider"></div>
+          <button class="gallery-btn" onclick="openGallery('Wash Station', 'wash-station')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+      </div>
+
+      <!-- Kidney Care -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">Kidney Care</div>
+        <div class="card-desc">Healthcare app for kidney disease management — patient records, medication reminders, and health data monitoring.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-orange">Healthcare</span>
+          <span class="tag tag-blue">Firebase</span>
+        </div>
+        <div class="card-footer">
+          <button class="gallery-btn" onclick="openGallery('Kidney Care', 'kidney-care')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+        <div class="card-freelance">Freelance · 2020–2024</div>
+      </div>
+
+      <!-- Data Encryption -->
+      <div class="mobile-card reveal">
+        <div class="card-icon">🔒</div>
+        <div class="card-title">Data Encryption Tool</div>
+        <div class="card-desc">Secure mobile utility for encrypting and protecting sensitive user data, built with modern cryptographic standards.</div>
+        <div class="card-tags">
+          <span class="tag tag-blue">Flutter</span>
+          <span class="tag tag-orange">Security</span>
+          <span class="tag tag-blue">Cryptography</span>
+        </div>
+        <div class="card-footer">
+          <button class="gallery-btn" onclick="openGallery('Data Encryption Tool', 'encryption-tool')">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Gallery
+          </button>
+        </div>
+        <div class="card-freelance">Freelance · 2020–2024</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 WEB ══ -->
+<section id="web">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="color:var(--accent2)">
+        <span class="dot" style="background:var(--accent2)"></span> 02 — Web Applications
+      </div>
+      <h2 class="section-title">Full-stack for the browser.</h2>
+      <p class="section-desc">Enterprise dashboards, LIMS systems, and e-invoicing backends with Angular & ASP.NET.</p>
+    </div>
+    <div class="web-list">
+      <div class="web-item reveal">
+        <span class="web-num">01</span>
+        <div class="web-info">
+          <h3>Hoppies — Web Platform</h3>
+          <p>Website for the Hoppies Club community — content hub, events, and resources for motorcycle enthusiasts.</p>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">Angular</span></div>
+        </div>
+        <div class="web-links"><a href="https://bikersband.com" target="_blank">↗ bikersband.com</a></div>
+      </div>
+      <div class="web-item reveal">
+        <span class="web-num">02</span>
+        <div class="web-info">
+          <h3>Enterprise Admin Dashboard</h3>
+          <p>Feature-rich management panel with advanced DevExpress reports, data grids, and analytics — integrated into enterprise systems at Databand IT Solutions.</p>
+          <div class="card-tags"><span class="tag tag-orange">Angular</span><span class="tag tag-orange">ASP.NET Core</span><span class="tag tag-orange">DevExpress</span><span class="tag tag-orange">EF Core</span></div>
+        </div>
+        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
+      </div>
+      <div class="web-item reveal">
+        <span class="web-num">03</span>
+        <div class="web-info">
+          <h3>LIMS System</h3>
+          <p>Laboratory Information Management System — new features, workflow improvements, and backend performance optimisation for a production system.</p>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET MVC</span><span class="tag tag-orange">FastReport</span><span class="tag tag-orange">SQL Server</span></div>
+        </div>
+        <div class="web-links"><span class="web-note">Databand IT Solutions</span></div>
+      </div>
+      <div class="web-item reveal">
+        <span class="web-num">04</span>
+        <div class="web-info">
+          <h3>ZATCA E-Invoicing Integration</h3>
+          <p>Saudi Arabia e-invoicing compliance — generating, validating, and submitting invoices per ZATCA Phase 2 regulations.</p>
+          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">ZATCA</span><span class="tag tag-orange">C#</span></div>
+        </div>
+        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 GAMES ══ -->
+<section id="games">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="color:var(--accent3)">
+        <span class="dot" style="background:var(--accent3)"></span> 03 — Games & Interactive
+      </div>
+      <h2 class="section-title">Play. Learn. Explore.</h2>
+      <p class="section-desc">Arabic-first educational mini-games celebrating Sudanese culture — Flutter with full RTL support.</p>
+    </div>
+    <div class="games-grid">
+      <div class="game-card reveal">
+        <div class="game-card-header" style="background:linear-gradient(135deg,#1a0a2e,#2d1b4e);color:var(--accent3);">
+          <div class="game-bg-pattern"></div>
+          <div style="font-size:2rem;position:relative">🎮</div>
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:var(--accent3);opacity:.8;position:relative;text-transform:uppercase">Guess the Figure</div>
+        </div>
+        <div class="game-card-body">
+          <span class="game-badge badge-wip">⚡ In Development</span>
+          <h3 style="margin-top:12px">من أنا؟ — Who Am I?</h3>
+          <p>Identify Sudanese historical figures, landmarks, and icons through progressive Arabic clues.</p>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Game Logic</span></div>
+        </div>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-card-header" style="background:linear-gradient(135deg,#0a1f1a,#0d3329);color:#34d399;">
+          <div class="game-bg-pattern"></div>
+          <div style="font-size:2rem;position:relative">🔍</div>
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#34d399;opacity:.8;position:relative;text-transform:uppercase">Word Search</div>
+        </div>
+        <div class="game-card-body">
+          <span class="game-badge badge-wip">⚡ In Development</span>
+          <h3 style="margin-top:12px">ابحث عن المدن — Find the Cities</h3>
+          <p>Arabic word search grid featuring Sudanese city names — learn geography through timed puzzle gameplay.</p>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">CustomPainter</span><span class="tag tag-purple">Arabic UI</span></div>
+        </div>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-card-header" style="background:linear-gradient(135deg,#1f1206,#3d2510);color:#fb923c;">
+          <div class="game-bg-pattern"></div>
+          <div style="font-size:2rem;position:relative">🎵</div>
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#fb923c;opacity:.8;position:relative;text-transform:uppercase">Music Quiz</div>
+        </div>
+        <div class="game-card-body">
+          <span class="game-badge badge-wip">⚡ In Development</span>
+          <h3 style="margin-top:12px">مين غنّاها؟ — Who Sang It?</h3>
+          <p>Identify Sudanese singers from audio clips and lyrics in this music knowledge quiz game.</p>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Audio Player</span><span class="tag tag-purple">Quiz Engine</span></div>
+        </div>
+      </div>
+      <div class="game-card reveal">
+        <div class="game-card-header" style="background:linear-gradient(135deg,#1f0a0a,#3d1515);color:#f87171;">
+          <div class="game-bg-pattern"></div>
+          <div style="font-size:2rem;position:relative">🍽️</div>
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#f87171;opacity:.8;position:relative;text-transform:uppercase">Food Quiz</div>
+        </div>
+        <div class="game-card-body">
+          <span class="game-badge badge-wip">⚡ In Development</span>
+          <h3 style="margin-top:12px">أكلة من وين؟ — Where's This Dish From?</h3>
+          <p>Guess the Sudanese region behind each traditional dish — explore culinary diversity through play.</p>
+          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Cultural</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="color:var(--text-dim)">
+        <span class="dot" style="background:var(--text-dim)"></span> 04 — About
+      </div>
+      <h2 class="section-title">The person behind the code.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm <strong>Oqbah Mohammed</strong>, a full-stack developer from Sudan with a Bachelor's in Software Engineering from Mashreq University (2020).</p>
+        <p>My core stack is <strong>Flutter/Dart</strong> for mobile, paired with <strong>ASP.NET Core</strong> and <strong>Angular</strong> on the web. Currently building enterprise systems at <strong>Databand IT Solutions</strong>.</p>
+        <p>Actively expanding into <strong>AI/LLM engineering</strong> — working with the Anthropic API, LangChain, and RAG pipelines.</p>
+        <p>Passionate about technology that serves the <strong>Arabic-speaking world</strong> and Sudanese culture.</p>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-row">Flutter / Dart <span>5 yrs</span></div>
+        <div class="skill-row">ASP.NET Core / C# <span>2 yrs</span></div>
+        <div class="skill-row">Angular / TypeScript <span>1 yr</span></div>
+        <div class="skill-row">SQL Server / EF Core</div>
+        <div class="skill-row">Azure DevOps / CI/CD</div>
+        <div class="skill-row">DevExpress / FastReport</div>
+        <div class="skill-row">ZATCA E-Invoicing</div>
+        <div class="skill-row">Anthropic API / LangChain <span>learning</span></div>
+        <div class="skill-row">Python <span>learning</span></div>
+        <div class="skill-row">Arabic UI / RTL <span>native</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-box reveal">
+      <h3>Let's build something.</h3>
+      <p>// Open to freelance projects, collaborations & full-time roles</p>
+      <div class="contact-links">
+        <a href="mailto:oqbahdx@gmail.com" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          oqbahdx@gmail.com
+        </a>
+        <a href="tel:+201207043244" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          +20 120 704 3244
+        </a>
+        <a href="https://github.com/oqbahdx" target="_blank" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          oqbahdx
+        </a>
+        <a href="https://www.linkedin.com/in/oqbah-dx-25b9951b1" target="_blank" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://dribbble.com/oqbahdx" target="_blank" class="contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.485 0-.96.04-1.4.111zm8.086 1.818c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.09-2.304-.81-4.43-2.314-6.386z"/></svg>
+          Dribbble
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Oqbah Mohammed · oqbahdx@gmail.com</p>
+  <div class="status"><span class="status-dot"></span>Available for new projects</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
