@@ -266,7 +266,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   background: var(--ink); color: var(--off-white);
   display: flex; align-items: center; justify-content: center;
   font-size: .8rem; font-weight: 600; letter-spacing: .04em;
-  flex-shrink: 0;
+  flex-shrink: 0; object-fit: cover;
 }
 .hero-card-name {
   font-weight: 600; font-size: .95rem; color: var(--ink);
@@ -632,6 +632,11 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 .about-link:hover {
   color: var(--accent); border-color: var(--accent);
   background: var(--accent-lt);
+}
+
+.about-photo {
+  width: 100px; height: 100px; border-radius: 16px;
+  object-fit: cover; margin-bottom: 20px; display: block;
 }
 
 /* Skills Panel */
@@ -1018,7 +1023,7 @@ footer {
     <div class="hero-right reveal">
       <div class="hero-card">
         <div class="hero-card-head">
-          <div class="hero-avatar">OM</div>
+          <img class="hero-avatar" src="assets/profile/me.jpeg" alt="Oqbah Mohammed">
           <div>
             <div class="hero-card-name">Oqbah Mohammed</div>
             <div class="hero-card-role">Software Engineer · Databand IT</div>
@@ -1424,6 +1429,7 @@ footer {
     <div class="about-grid">
 
       <div class="about-text reveal">
+        <img class="about-photo" src="assets/profile/me.jpeg" alt="Oqbah Mohammed">
         <p>I'm <strong>Oqbah Mohammed</strong>, a full-stack developer from Sudan with a Bachelor's in Software Engineering from Mashreq University (2020).</p>
         <p>My core stack is <strong>Flutter/Dart</strong> for mobile, paired with <strong>ASP.NET Core</strong> and <strong>Angular</strong> on the web. Currently building enterprise systems at <strong>Databand IT Solutions</strong>.</p>
         <p>Actively expanding into <span class="text-accent">AI/LLM engineering</span> — working with the Anthropic API, LangChain, and RAG pipelines.</p>
