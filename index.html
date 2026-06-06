@@ -1,404 +1,733 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Oqbah Mohammed — Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-<!-- ══ GALLERY MODAL ══ -->
-<div class="gallery-overlay" id="galleryOverlay">
-  <div class="gallery-header">
-    <div class="gallery-title-wrap">
-      <span class="gallery-label">Screenshots</span>
-      <span class="gallery-app-name" id="galleryAppName">App Name</span>
-    </div>
-    <button class="gallery-close" id="galleryClose" aria-label="Close gallery">✕</button>
-  </div>
-  <div class="gallery-body">
-    <div class="gallery-grid" id="galleryGrid"></div>
-  </div>
-</div>
+:root {
+  --bg:         #F7F4EF;
+  --bg-alt:     #EFEAE2;
+  --surface:    #FFFFFF;
+  --surface-2:  #F0EBE3;
+  --border:     rgba(30,20,10,0.10);
+  --border-mid: rgba(30,20,10,0.16);
 
-<!-- ══ LIGHTBOX ══ -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">✕</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-  <img src="" alt="Screenshot" id="lightboxImg"/>
-  <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
-  <div class="lightbox-counter" id="lightboxCounter"></div>
-</div>
+  --ink:        #1A140D;
+  --ink-mid:    #4A3F35;
+  --ink-dim:    #8C7E72;
+  --ink-faint:  #B5A99E;
 
-<!-- Nav -->
-<nav>
-  <span class="nav-logo">OQB</span>
-  <ul class="nav-links">
-    <li><a href="#mobile">Mobile</a></li>
-    <li><a href="#web">Web</a></li>
-    <li><a href="#games">Games</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  --accent:     #C85B2A;        /* terracotta */
+  --accent-lt:  #F2DDD2;        /* terracotta tint */
+  --navy:       #1D2D44;        /* deep navy */
+  --navy-lt:    #D8E1EC;
+  --sage:       #4A6741;        /* sage green */
+  --sage-lt:    #D8E8D6;
 
-<!-- Hero -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <p class="hero-tag">Full-Stack Developer · Sudan</p>
-  <h1 class="hero-name">Oqbah<br/><span class="line2">Mohammed.</span></h1>
-  <p class="hero-sub">// Flutter · .NET · Angular · AI/LLM Engineering</p>
-  <div class="hero-meta">
-    <div class="meta-item"><span class="meta-label">Experience</span><span class="meta-value">5+ Years</span></div>
-    <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">Mobile · Web · AI</span></div>
-    <div class="meta-item"><span class="meta-label">Current</span><span class="meta-value">Databand IT</span></div>
-  </div>
-  <div class="hero-cta">
-    <a href="#mobile" class="btn btn-primary">View Work →</a>
-    <a href="https://github.com/oqbahdx" target="_blank" class="btn btn-outline">GitHub</a>
-    <a href="https://www.linkedin.com/in/oqbah-dx-25b9951b1" target="_blank" class="btn btn-outline">LinkedIn</a>
-  </div>
-</section>
+  --font-display: 'Fraunces', serif;
+  --font-sans:    'Instrument Sans', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
 
-<!-- ══ 01 MOBILE ══ -->
-<section id="mobile">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow" style="color:var(--accent)">
-        <span class="dot" style="background:var(--accent)"></span> 01 — Mobile Applications
-      </div>
-      <h2 class="section-title">Built for the pocket.</h2>
-      <p class="section-desc">Cross-platform Flutter apps — from ride-sharing to healthcare, delivered end-to-end.</p>
-    </div>
-    <div class="mobile-grid">
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  14px;
+  --shadow-sm:  0 1px 3px rgba(30,20,10,.07), 0 1px 2px rgba(30,20,10,.05);
+  --shadow-md:  0 4px 16px rgba(30,20,10,.09), 0 2px 6px rgba(30,20,10,.06);
+  --shadow-lg:  0 12px 40px rgba(30,20,10,.12), 0 4px 12px rgba(30,20,10,.08);
+}
 
-      <!-- Hoppies -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🏍️</div>
-        <div class="card-title">Hoppies Club</div>
-        <div class="card-desc">Community app for motorcycle enthusiasts — adventure planning, safety education, and rider networking. Live on Play Store.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-blue">Dart</span>
-          <span class="tag tag-orange">Play Store</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://play.google.com/store/apps/details?id=motorcycleecho.databand.sa" target="_blank" class="card-link">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Play Store
-          </a>
-          <div class="card-divider"></div>
-          <button class="gallery-btn" onclick="openGallery('Hoppies Club', 'hoppies')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-      </div>
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+}
 
-      <!-- Meshwark Rider -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🚗</div>
-        <div class="card-title">Meshwark Rider</div>
-        <div class="card-desc">Real-time ride-hailing for passengers — live map tracking, booking flow, and seamless payment. Uber-style architecture in Flutter.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-blue">SignalR</span>
-          <span class="tag tag-orange">Maps API</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/oqbahdx/mashawerk_rider" target="_blank" class="card-link">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <div class="card-divider"></div>
-          <button class="gallery-btn" onclick="openGallery('Meshwark Rider', 'meshwark-rider')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-      </div>
+/* ── Custom Cursor ── */
+#cursor {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.06s, background 0.2s, width 0.2s, height 0.2s;
+}
+#cursor-ring {
+  width: 30px; height: 30px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: left 0.16s ease, top 0.16s ease, width 0.2s, height 0.2s, opacity 0.2s;
+  opacity: 0.4;
+}
+body:has(a:hover) #cursor,
+body:has(button:hover) #cursor { transform: translate(-50%,-50%) scale(1.6); background: var(--navy); }
+body:has(a:hover) #cursor-ring,
+body:has(button:hover) #cursor-ring { width: 42px; height: 42px; opacity: 0.25; border-color: var(--navy); }
 
-      <!-- Meshwark Driver -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🚘</div>
-        <div class="card-title">Meshwark Driver</div>
-        <div class="card-desc">Driver-side companion — ride management, real-time location broadcasting, earnings tracking, and status controls.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-blue">SignalR</span>
-          <span class="tag tag-orange">ASP.NET</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/oqbahdx/meshwark_driver" target="_blank" class="card-link">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <div class="card-divider"></div>
-          <button class="gallery-btn" onclick="openGallery('Meshwark Driver', 'meshwark-driver')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-      </div>
+/* ── Nav ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display: flex; align-items:center; justify-content:space-between;
+  padding: 0 56px;
+  height: 68px;
+  background: rgba(247,244,239,0.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.02em;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--ink-dim);
+  text-decoration: none;
+  letter-spacing: .06em;
+  transition: color .2s;
+  cursor: none;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { transform: scaleX(1); }
 
-      <!-- Wash Station -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🚿</div>
-        <div class="card-title">Wash Station</div>
-        <div class="card-desc">Car wash service management app — track wash cycles, manage bookings, and view service history efficiently.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-blue">Dart</span>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/oqbahdx/wash-station-clients" target="_blank" class="card-link">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <div class="card-divider"></div>
-          <button class="gallery-btn" onclick="openGallery('Wash Station', 'wash-station')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-      </div>
+/* ── Hero ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 56px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-backdrop {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.hero-circle-1 {
+  position: absolute;
+  width: 680px; height: 680px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,91,42,.10) 0%, transparent 70%);
+  top: -180px; right: -120px;
+}
+.hero-circle-2 {
+  position: absolute;
+  width: 440px; height: 440px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29,45,68,.07) 0%, transparent 70%);
+  bottom: 40px; left: -80px;
+}
+.hero-line-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,20,10,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,20,10,.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 70% at 60% 40%, black, transparent);
+}
 
-      <!-- Kidney Care -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🏥</div>
-        <div class="card-title">Kidney Care</div>
-        <div class="card-desc">Healthcare app for kidney disease management — patient records, medication reminders, and health data monitoring.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-orange">Healthcare</span>
-          <span class="tag tag-blue">Firebase</span>
-        </div>
-        <div class="card-footer">
-          <button class="gallery-btn" onclick="openGallery('Kidney Care', 'kidney-care')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-        <div class="card-freelance">Freelance · 2020–2024</div>
-      </div>
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  opacity: 0; animation: fadeUp .6s .15s forwards;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block; width: 28px; height: 1px;
+  background: var(--accent);
+}
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9.5rem);
+  font-weight: 900;
+  line-height: .88;
+  letter-spacing: -.04em;
+  opacity: 0; animation: fadeUp .7s .3s forwards;
+  color: var(--ink);
+}
+.hero-name .emphasis {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.hero-sub {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: clamp(.8rem, 1.5vw, .9rem);
+  color: var(--ink-dim);
+  opacity: 0; animation: fadeUp .6s .46s forwards;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-sub::before {
+  content: '//';
+  color: var(--ink-faint);
+}
+.hero-divider {
+  margin-top: 52px;
+  display: flex; align-items: center; gap: 0;
+  opacity: 0; animation: fadeUp .6s .6s forwards;
+}
+.hero-divider-line { flex: 1; height: 1px; background: var(--border-mid); }
+.hero-meta {
+  display: flex; gap: 0;
+  opacity: 0; animation: fadeUp .6s .68s forwards;
+}
+.meta-item {
+  padding: 20px 32px;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 5px;
+}
+.meta-item:first-child { padding-left: 0; }
+.meta-label {
+  font-family: var(--font-mono); font-size: .6rem;
+  color: var(--ink-faint); letter-spacing: .15em; text-transform: uppercase;
+}
+.meta-value {
+  font-family: var(--font-display); font-size: 1.1rem;
+  font-weight: 700; color: var(--ink); letter-spacing: -.02em;
+}
 
-      <!-- Data Encryption -->
-      <div class="mobile-card reveal">
-        <div class="card-icon">🔒</div>
-        <div class="card-title">Data Encryption Tool</div>
-        <div class="card-desc">Secure mobile utility for encrypting and protecting sensitive user data, built with modern cryptographic standards.</div>
-        <div class="card-tags">
-          <span class="tag tag-blue">Flutter</span>
-          <span class="tag tag-orange">Security</span>
-          <span class="tag tag-blue">Cryptography</span>
-        </div>
-        <div class="card-footer">
-          <button class="gallery-btn" onclick="openGallery('Data Encryption Tool', 'encryption-tool')">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Gallery
-          </button>
-        </div>
-        <div class="card-freelance">Freelance · 2020–2024</div>
-      </div>
+.hero-cta {
+  margin-top: 40px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .6s .8s forwards;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-sm);
+  font-family: var(--font-mono); font-size: .75rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; transition: all .22s;
+  cursor: none; border: none; font-weight: 500;
+}
+.btn-primary {
+  background: var(--ink); color: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--accent); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline {
+  border: 1.5px solid var(--border-mid); color: var(--ink-mid);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--accent); color: var(--accent);
+  transform: translateY(-2px);
+  background: var(--accent-lt);
+}
 
-    </div>
-  </div>
-</section>
+/* ── Section Shared ── */
+.section-inner { max-width: 1140px; margin: 0 auto; padding: 104px 56px; position: relative; z-index: 1; }
+.section-header { margin-bottom: 64px; }
+.section-eyebrow {
+  font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 16px; color: var(--ink-dim);
+}
+.section-eyebrow .num { color: var(--accent); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; line-height: 1.05;
+  letter-spacing: -.03em; color: var(--ink);
+}
+.section-title em { font-style: italic; font-weight: 300; color: var(--ink-mid); }
+.section-desc {
+  margin-top: 12px; font-family: var(--font-mono);
+  font-size: .82rem; color: var(--ink-dim);
+  font-style: italic; max-width: 500px; line-height: 1.7;
+}
 
-<!-- ══ 02 WEB ══ -->
-<section id="web">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow" style="color:var(--accent2)">
-        <span class="dot" style="background:var(--accent2)"></span> 02 — Web Applications
-      </div>
-      <h2 class="section-title">Full-stack for the browser.</h2>
-      <p class="section-desc">Enterprise dashboards, LIMS systems, and e-invoicing backends with Angular & ASP.NET.</p>
-    </div>
-    <div class="web-list">
-      <div class="web-item reveal">
-        <span class="web-num">01</span>
-        <div class="web-info">
-          <h3>Hoppies — Web Platform</h3>
-          <p>Website for the Hoppies Club community — content hub, events, and resources for motorcycle enthusiasts.</p>
-          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">Angular</span></div>
-        </div>
-        <div class="web-links"><a href="https://bikersband.com" target="_blank">↗ bikersband.com</a></div>
-      </div>
-      <div class="web-item reveal">
-        <span class="web-num">02</span>
-        <div class="web-info">
-          <h3>Enterprise Admin Dashboard</h3>
-          <p>Feature-rich management panel with advanced DevExpress reports, data grids, and analytics — integrated into enterprise systems at Databand IT Solutions.</p>
-          <div class="card-tags"><span class="tag tag-orange">Angular</span><span class="tag tag-orange">ASP.NET Core</span><span class="tag tag-orange">DevExpress</span><span class="tag tag-orange">EF Core</span></div>
-        </div>
-        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
-      </div>
-      <div class="web-item reveal">
-        <span class="web-num">03</span>
-        <div class="web-info">
-          <h3>LIMS System</h3>
-          <p>Laboratory Information Management System — new features, workflow improvements, and backend performance optimisation for a production system.</p>
-          <div class="card-tags"><span class="tag tag-orange">ASP.NET MVC</span><span class="tag tag-orange">FastReport</span><span class="tag tag-orange">SQL Server</span></div>
-        </div>
-        <div class="web-links"><span class="web-note">Databand IT Solutions</span></div>
-      </div>
-      <div class="web-item reveal">
-        <span class="web-num">04</span>
-        <div class="web-info">
-          <h3>ZATCA E-Invoicing Integration</h3>
-          <p>Saudi Arabia e-invoicing compliance — generating, validating, and submitting invoices per ZATCA Phase 2 regulations.</p>
-          <div class="card-tags"><span class="tag tag-orange">ASP.NET</span><span class="tag tag-orange">ZATCA</span><span class="tag tag-orange">C#</span></div>
-        </div>
-        <div class="web-links"><span class="web-note">Internal / NDA</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+/* ── Tags ── */
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.tag {
+  font-family: var(--font-mono); font-size: .6rem;
+  padding: 3px 9px; border-radius: 2px; letter-spacing: .04em;
+}
+.tag-blue   { color: var(--navy);  background: var(--navy-lt);  }
+.tag-orange { color: var(--accent); background: var(--accent-lt); }
+.tag-purple { color: #5B3E8A; background: #EDE3F7; }
 
-<!-- ══ 03 GAMES ══ -->
-<section id="games">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow" style="color:var(--accent3)">
-        <span class="dot" style="background:var(--accent3)"></span> 03 — Games & Interactive
-      </div>
-      <h2 class="section-title">Play. Learn. Explore.</h2>
-      <p class="section-desc">Arabic-first educational mini-games celebrating Sudanese culture — Flutter with full RTL support.</p>
-    </div>
-    <div class="games-grid">
-      <div class="game-card reveal">
-        <div class="game-card-header" style="background:linear-gradient(135deg,#1a0a2e,#2d1b4e);color:var(--accent3);">
-          <div class="game-bg-pattern"></div>
-          <div style="font-size:2rem;position:relative">🎮</div>
-          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:var(--accent3);opacity:.8;position:relative;text-transform:uppercase">Guess the Figure</div>
-        </div>
-        <div class="game-card-body">
-          <span class="game-badge badge-wip">⚡ In Development</span>
-          <h3 style="margin-top:12px">من أنا؟ — Who Am I?</h3>
-          <p>Identify Sudanese historical figures, landmarks, and icons through progressive Arabic clues.</p>
-          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Game Logic</span></div>
-        </div>
-      </div>
-      <div class="game-card reveal">
-        <div class="game-card-header" style="background:linear-gradient(135deg,#0a1f1a,#0d3329);color:#34d399;">
-          <div class="game-bg-pattern"></div>
-          <div style="font-size:2rem;position:relative">🔍</div>
-          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#34d399;opacity:.8;position:relative;text-transform:uppercase">Word Search</div>
-        </div>
-        <div class="game-card-body">
-          <span class="game-badge badge-wip">⚡ In Development</span>
-          <h3 style="margin-top:12px">ابحث عن المدن — Find the Cities</h3>
-          <p>Arabic word search grid featuring Sudanese city names — learn geography through timed puzzle gameplay.</p>
-          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">CustomPainter</span><span class="tag tag-purple">Arabic UI</span></div>
-        </div>
-      </div>
-      <div class="game-card reveal">
-        <div class="game-card-header" style="background:linear-gradient(135deg,#1f1206,#3d2510);color:#fb923c;">
-          <div class="game-bg-pattern"></div>
-          <div style="font-size:2rem;position:relative">🎵</div>
-          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#fb923c;opacity:.8;position:relative;text-transform:uppercase">Music Quiz</div>
-        </div>
-        <div class="game-card-body">
-          <span class="game-badge badge-wip">⚡ In Development</span>
-          <h3 style="margin-top:12px">مين غنّاها؟ — Who Sang It?</h3>
-          <p>Identify Sudanese singers from audio clips and lyrics in this music knowledge quiz game.</p>
-          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Audio Player</span><span class="tag tag-purple">Quiz Engine</span></div>
-        </div>
-      </div>
-      <div class="game-card reveal">
-        <div class="game-card-header" style="background:linear-gradient(135deg,#1f0a0a,#3d1515);color:#f87171;">
-          <div class="game-bg-pattern"></div>
-          <div style="font-size:2rem;position:relative">🍽️</div>
-          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;color:#f87171;opacity:.8;position:relative;text-transform:uppercase">Food Quiz</div>
-        </div>
-        <div class="game-card-body">
-          <span class="game-badge badge-wip">⚡ In Development</span>
-          <h3 style="margin-top:12px">أكلة من وين؟ — Where's This Dish From?</h3>
-          <p>Guess the Sudanese region behind each traditional dish — explore culinary diversity through play.</p>
-          <div class="card-tags"><span class="tag tag-purple">Flutter</span><span class="tag tag-purple">Arabic / RTL</span><span class="tag tag-purple">Cultural</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+/* ══ MOBILE SECTION ══ */
+#mobile { background: var(--bg); }
+.mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+.mobile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  position: relative; overflow: hidden;
+  transition: box-shadow .25s, transform .25s, border-color .25s;
+  cursor: none;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+.mobile-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  border-color: rgba(200,91,42,.25);
+}
+.card-accent-bar {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s ease;
+}
+.mobile-card:hover .card-accent-bar { transform: scaleX(1); }
+.card-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--accent-lt);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; font-size: 1.2rem; flex-shrink: 0;
+  border: 1px solid rgba(200,91,42,.15);
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: -.02em; margin-bottom: 10px; color: var(--ink);
+}
+.card-desc {
+  font-family: var(--font-mono); font-size: .78rem;
+  color: var(--ink-dim); line-height: 1.75;
+  margin-bottom: 18px; flex: 1;
+}
+.card-footer {
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap; margin-top: auto;
+  padding-top: 16px; border-top: 1px solid var(--border);
+}
+.card-link {
+  font-family: var(--font-mono); font-size: .67rem;
+  color: var(--ink-dim); text-decoration: none;
+  letter-spacing: .06em;
+  display: inline-flex; align-items: center; gap: 5px;
+  transition: color .2s; cursor: none;
+}
+.card-link:hover { color: var(--accent); }
+.card-divider { width: 1px; height: 14px; background: var(--border-mid); flex-shrink: 0; }
+.gallery-btn {
+  font-family: var(--font-mono); font-size: .67rem;
+  color: var(--ink-dim); letter-spacing: .06em;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: none; padding: 0; cursor: none;
+  transition: color .2s;
+}
+.gallery-btn:hover { color: var(--accent); }
+.card-freelance {
+  font-family: var(--font-mono); font-size: .63rem;
+  color: var(--ink-faint); margin-top: 10px;
+}
 
-<!-- About -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="section-eyebrow" style="color:var(--text-dim)">
-        <span class="dot" style="background:var(--text-dim)"></span> 04 — About
-      </div>
-      <h2 class="section-title">The person behind the code.</h2>
-    </div>
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <p>I'm <strong>Oqbah Mohammed</strong>, a full-stack developer from Sudan with a Bachelor's in Software Engineering from Mashreq University (2020).</p>
-        <p>My core stack is <strong>Flutter/Dart</strong> for mobile, paired with <strong>ASP.NET Core</strong> and <strong>Angular</strong> on the web. Currently building enterprise systems at <strong>Databand IT Solutions</strong>.</p>
-        <p>Actively expanding into <strong>AI/LLM engineering</strong> — working with the Anthropic API, LangChain, and RAG pipelines.</p>
-        <p>Passionate about technology that serves the <strong>Arabic-speaking world</strong> and Sudanese culture.</p>
-      </div>
-      <div class="skills-wrap">
-        <div class="skill-row">Flutter / Dart <span>5 yrs</span></div>
-        <div class="skill-row">ASP.NET Core / C# <span>2 yrs</span></div>
-        <div class="skill-row">Angular / TypeScript <span>1 yr</span></div>
-        <div class="skill-row">SQL Server / EF Core</div>
-        <div class="skill-row">Azure DevOps / CI/CD</div>
-        <div class="skill-row">DevExpress / FastReport</div>
-        <div class="skill-row">ZATCA E-Invoicing</div>
-        <div class="skill-row">Anthropic API / LangChain <span>learning</span></div>
-        <div class="skill-row">Python <span>learning</span></div>
-        <div class="skill-row">Arabic UI / RTL <span>native</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+/* ══ GALLERY MODAL ══ */
+.gallery-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(247,244,239,0.97);
+  backdrop-filter: blur(24px);
+  display: flex; flex-direction: column;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease;
+}
+.gallery-overlay.open { opacity: 1; pointer-events: all; }
+.gallery-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 44px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.gallery-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+.gallery-app-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 700;
+  letter-spacing: -.02em; color: var(--ink);
+}
+.gallery-label {
+  font-family: var(--font-mono); font-size: .62rem;
+  color: var(--accent); letter-spacing: .18em; text-transform: uppercase;
+}
+.gallery-close {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--border-mid); background: none;
+  color: var(--ink-dim); font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none; transition: all .2s;
+}
+.gallery-close:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-lt);
+}
+.gallery-body { flex: 1; overflow-y: auto; padding: 36px 44px 44px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 14px;
+}
+.gallery-thumb {
+  aspect-ratio: 9 / 18; border-radius: var(--radius-lg);
+  overflow: hidden; border: 1px solid var(--border);
+  position: relative; background: var(--bg-alt); cursor: none;
+  transition: transform .22s, border-color .22s, box-shadow .22s;
+  box-shadow: var(--shadow-sm);
+}
+.gallery-thumb:hover {
+  transform: scale(1.04) translateY(-3px);
+  border-color: rgba(200,91,42,.4);
+  box-shadow: var(--shadow-lg);
+}
+.gallery-thumb img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .3s; }
+.gallery-thumb:hover img { transform: scale(1.06); }
+.gallery-thumb .placeholder {
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:12px;
+  background: linear-gradient(160deg, var(--bg-alt) 0%, var(--surface-2) 100%);
+}
+.placeholder-phone {
+  width:36px; height:64px; border-radius:6px;
+  border:2px solid rgba(200,91,42,.2);
+  position:relative; overflow:hidden;
+}
+.placeholder-phone::before {
+  content:''; position:absolute; top:6px; left:50%;
+  transform:translateX(-50%);
+  width:10px; height:2px; border-radius:1px;
+  background:rgba(200,91,42,.3);
+}
+.placeholder-phone::after {
+  content:''; position:absolute;
+  top:12px; left:4px; right:4px; bottom:6px;
+  background:repeating-linear-gradient(
+    0deg, rgba(200,91,42,.05) 0px, rgba(200,91,42,.05) 1px,
+    transparent 1px, transparent 8px
+  );
+  border-radius:2px;
+}
+.placeholder-index {
+  font-family:var(--font-mono); font-size:.6rem;
+  color:var(--ink-faint); letter-spacing:.12em;
+}
+.replace-hint {
+  position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+  font-family:var(--font-mono); font-size:.52rem; color:var(--ink-faint);
+  background:rgba(247,244,239,.9); padding:3px 8px; border-radius:3px;
+  white-space:nowrap; letter-spacing:.06em; pointer-events:none;
+  border: 1px solid var(--border);
+}
 
-<!-- Contact -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="contact-box reveal">
-      <h3>Let's build something.</h3>
-      <p>// Open to freelance projects, collaborations & full-time roles</p>
-      <div class="contact-links">
-        <a href="mailto:oqbahdx@gmail.com" class="contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          oqbahdx@gmail.com
-        </a>
-        <a href="tel:+201207043244" class="contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.18 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-          +20 120 704 3244
-        </a>
-        <a href="https://github.com/oqbahdx" target="_blank" class="contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          oqbahdx
-        </a>
-        <a href="https://www.linkedin.com/in/oqbah-dx-25b9951b1" target="_blank" class="contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://dribbble.com/oqbahdx" target="_blank" class="contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.176zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.485 0-.96.04-1.4.111zm8.086 1.818c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.09-2.304-.81-4.43-2.314-6.386z"/></svg>
-          Dribbble
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+/* ══ LIGHTBOX ══ */
+.lightbox {
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(247,244,239,.97);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .25s;
+}
+.lightbox.open { opacity:1; pointer-events:all; }
+.lightbox img {
+  max-width:90vw; max-height:90vh; border-radius:16px;
+  transform:scale(.96); transition:transform .3s;
+  object-fit:contain; box-shadow: var(--shadow-lg);
+}
+.lightbox.open img { transform:scale(1); }
+.lightbox-close {
+  position:absolute; top:24px; right:24px;
+  width:44px; height:44px; border-radius:50%;
+  border:1.5px solid var(--border-mid); background:var(--surface);
+  color:var(--ink-mid); font-size:1.2rem;
+  display:flex; align-items:center; justify-content:center;
+  cursor:none; transition:all .2s; box-shadow: var(--shadow-sm);
+}
+.lightbox-close:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-lt); }
+.lightbox-nav {
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:48px; height:48px; border-radius:50%;
+  border:1.5px solid var(--border-mid); background:var(--surface);
+  color:var(--ink-mid); font-size:1.2rem;
+  display:flex; align-items:center; justify-content:center;
+  cursor:none; transition:all .2s; box-shadow: var(--shadow-sm);
+}
+.lightbox-nav:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-lt); }
+.lightbox-prev { left:24px; }
+.lightbox-next { right:24px; }
+.lightbox-counter {
+  position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+  font-family:var(--font-mono); font-size:.72rem; color:var(--ink-dim);
+  letter-spacing:.12em; background: var(--surface);
+  padding: 6px 14px; border-radius: 99px; border: 1px solid var(--border);
+}
 
-<footer>
-  <p>© 2026 Oqbah Mohammed · oqbahdx@gmail.com</p>
-  <div class="status"><span class="status-dot"></span>Available for new projects</div>
-</footer>
+/* ══ WEB SECTION ══ */
+#web { background: var(--bg-alt); }
+.web-list { display: flex; flex-direction: column; }
+.web-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 180px;
+  align-items: center; gap: 32px;
+  padding: 28px 24px; margin: 0 -24px;
+  border-bottom: 1px solid var(--border); border-radius: var(--radius-md);
+  transition: all .22s; cursor: none;
+}
+.web-item:first-child { border-top: 1px solid var(--border); }
+.web-item:hover {
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+  transform: translateX(4px);
+}
+.web-item:hover .web-num { color: var(--accent); }
+.web-item:hover .web-info h3 { color: var(--accent); }
+.web-num {
+  font-family: var(--font-display); font-size: 1.5rem;
+  font-weight: 700; color: var(--ink-faint);
+  letter-spacing: -.03em; text-align: center;
+  transition: color .2s; font-style: italic;
+}
+.web-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem; font-weight: 700;
+  letter-spacing: -.02em; margin-bottom: 7px;
+  color: var(--ink); transition: color .2s;
+}
+.web-info p {
+  font-family: var(--font-mono); font-size: .78rem;
+  color: var(--ink-dim); line-height: 1.65;
+}
+.web-info .card-tags { margin-top: 12px; margin-bottom: 0; }
+.web-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+.web-links a {
+  font-family: var(--font-mono); font-size: .68rem;
+  color: var(--ink-dim); text-decoration: none;
+  letter-spacing: .06em; transition: color .2s; cursor: none;
+  display: flex; align-items: center; gap: 5px;
+}
+.web-links a:hover { color: var(--accent); }
+.web-note {
+  font-family: var(--font-mono); font-size: .67rem;
+  color: var(--ink-faint); text-align: right;
+  font-style: italic;
+}
 
-<script src="js/script.js"></script>
-</body>
-</html>
+/* ══ GAMES SECTION ══ */
+#games { background: var(--bg); }
+.games-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.game-card {
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow .25s, transform .25s, border-color .25s;
+  cursor: none; background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.game-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  border-color: rgba(91,62,138,.25);
+}
+.game-card-header {
+  padding: 32px; min-height: 140px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.game-bg-pattern {
+  position: absolute; inset: 0; opacity: .06;
+  background-image: repeating-linear-gradient(
+    45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%
+  );
+  background-size: 12px 12px;
+}
+.game-card-body {
+  padding: 24px 28px 28px;
+  border-top: 1px solid var(--border);
+}
+.game-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: -.02em; margin-bottom: 8px;
+  color: var(--ink);
+}
+.game-card-body p {
+  font-family: var(--font-mono); font-size: .78rem;
+  color: var(--ink-dim); line-height: 1.75; margin-bottom: 14px;
+}
+.game-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: .63rem;
+  padding: 5px 12px; border-radius: 99px; letter-spacing: .05em;
+}
+.badge-wip {
+  background: #EDE3F7; color: #5B3E8A;
+  border: 1px solid rgba(91,62,138,.2);
+}
+
+/* ── About ── */
+#about { background: var(--bg-alt); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.about-text p {
+  font-family: var(--font-mono); font-size: .88rem;
+  color: var(--ink-mid); line-height: 1.9; margin-bottom: 18px;
+}
+.about-text p strong { color: var(--ink); }
+.about-text p em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+.skills-wrap { display: flex; flex-direction: column; gap: 6px; }
+.skill-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 11px 16px; border-radius: var(--radius-sm);
+  font-family: var(--font-mono); font-size: .76rem;
+  color: var(--ink-dim); background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all .2s; position: relative; overflow: hidden;
+}
+.skill-row::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--accent);
+  transform: scaleY(0); transform-origin: bottom; transition: transform .2s;
+  border-radius: 0 0 0 var(--radius-sm);
+}
+.skill-row:hover { color: var(--ink); border-color: rgba(200,91,42,.2); background: var(--bg); box-shadow: var(--shadow-sm); }
+.skill-row:hover::before { transform: scaleY(1); }
+.skill-row span {
+  margin-left: auto; color: var(--ink-faint);
+  font-size: .65rem; font-style: italic;
+}
+
+/* ── Contact ── */
+#contact { background: var(--ink); }
+#contact .section-inner { padding: 96px 56px; }
+.contact-box {
+  position: relative; overflow: hidden;
+  padding: 80px 64px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+}
+.contact-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% -10%, rgba(200,91,42,.18), transparent);
+}
+.contact-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; letter-spacing: -.03em;
+  margin-bottom: 14px; position: relative;
+  color: #F7F4EF;
+}
+.contact-box > p {
+  font-family: var(--font-mono);
+  color: rgba(247,244,239,.5);
+  font-size: .85rem; font-style: italic;
+  margin-bottom: 44px; position: relative;
+}
+.contact-links {
+  display: flex; justify-content: center;
+  gap: 12px; flex-wrap: wrap; position: relative;
+}
+.contact-link {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: .73rem;
+  color: rgba(247,244,239,.65); text-decoration: none;
+  letter-spacing: .07em; padding: 12px 22px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-sm);
+  transition: all .22s; cursor: none;
+  background: rgba(255,255,255,.04);
+}
+.contact-link:hover {
+  color: #F7F4EF; border-color: var(--accent);
+  background: rgba(200,91,42,.12);
+  transform: translateY(-3px);
+}
+
+/* ── Footer ── */
+footer {
+  padding: 28px 56px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--ink);
+}
+footer p {
+  font-family: var(--font-mono); font-size: .68rem;
+  color: rgba(247,244,239,.35); letter-spacing: .1em;
+}
+.status {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: .68rem;
+  color: rgba(247,244,239,.45);
+}
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4ade80; animation: pulse 2.4s infinite;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .section-inner { padding: 72px 24px; }
+  #hero { padding: 0 24px 64px; }
+  #contact .section-inner { padding: 72px 24px; }
+  footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 36px; }
+  .games-grid { grid-template-columns: 1fr; }
+  .web-item { grid-template-columns: 44px 1fr; }
+  .web-links { display: none; }
+  .contact-box { padding: 40px 24px; }
+  .hero-meta { gap: 0; }
+  .meta-item { padding: 16px 20px; }
+  .gallery-header { padding: 18px 20px; }
+  .gallery-body { padding: 20px; }
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: 8px; }
+}
+
+@media (max-width: 600px) {
+  .hero-name { font-size: clamp(3.2rem, 15vw, 6rem); }
+  .mobile-grid { grid-template-columns: 1fr; }
+  .meta-item { padding: 14px 16px; }
+}
