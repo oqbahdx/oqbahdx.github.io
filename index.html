@@ -333,6 +333,7 @@ section { position: relative; }
    01 — MOBILE PROJECTS
 ══════════════════════════════════════════ */
 .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.projects > .project:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .project-cover {
   position: relative; height: 340px; overflow: hidden;
@@ -696,7 +697,10 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
   <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
   <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M2 13h20"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></symbol>
-  <symbol id="i-flutter" viewBox="0 0 24 24" fill="currentColor"><path d="M14.3 1 3.6 11.7l3.3 3.3L20.9 1h-6.6zm0 10.4-5.9 5.9 3.3 3.3L14.3 23h6.6l-5.9-5.9 5.9-5.7h-6.6z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 014 4v13a3 3 0 00-3-3H2z"/><path d="M22 4h-6a4 4 0 00-4 4v13a3 3 0 013-3h7z"/></symbol>
+  <symbol id="i-flutter"viewBox="0 0 24 24" fill="currentColor"><path d="M14.3 1 3.6 11.7l3.3 3.3L20.9 1h-6.6zm0 10.4-5.9 5.9 3.3 3.3L14.3 23h6.6l-5.9-5.9 5.9-5.7h-6.6z"/></symbol>
 </svg>
 
 <div class="bg-glow" aria-hidden="true"><div class="bg-grid"></div></div>
@@ -735,7 +739,7 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
   <div class="container hero-grid">
     <div>
       <span class="chip reveal"><span class="dot"></span>Available for new projects</span>
-      <h1 class="reveal" style="--d:80ms">Full-stack developer building for <span class="serif grad-text">the Arabic&#8209;speaking world.</span></h1>
+      <h1 class="reveal" style="--d:80ms">Full-stack <span class="serif grad-text">developer.</span></h1>
       <p class="hero-lead reveal" style="--d:160ms">
         I'm <strong>Oqbah Mohammed</strong>, a software engineer at Databand IT. I ship
         <strong>Flutter</strong> apps, <strong>ASP.NET</strong> &amp; <strong>Angular</strong> platforms,
@@ -748,7 +752,7 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
       </div>
       <div class="hero-stats reveal" style="--d:320ms">
         <div class="hero-stat"><b>5+</b><span>Years</span></div>
-        <div class="hero-stat"><b>12+</b><span>Projects</span></div>
+        <div class="hero-stat"><b>40+</b><span>GitHub repos</span></div>
         <div class="hero-stat"><b>3</b><span>Platforms</span></div>
       </div>
     </div>
@@ -772,8 +776,8 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
 <!-- ══ STACK MARQUEE ══ -->
 <div class="marquee" aria-label="Tech stack">
   <div class="marquee-track">
-    <span>Flutter</span><span>Dart</span><span>ASP.NET Core</span><span>C#</span><span>Angular</span><span>TypeScript</span><span>SQL Server</span><span>EF Core</span><span>SignalR</span><span>Firebase</span><span>DevExpress</span><span>Azure DevOps</span><span>Anthropic API</span><span>LangChain</span><span>Python</span><span>Arabic UI / RTL</span>
-    <span aria-hidden="true">Flutter</span><span aria-hidden="true">Dart</span><span aria-hidden="true">ASP.NET Core</span><span aria-hidden="true">C#</span><span aria-hidden="true">Angular</span><span aria-hidden="true">TypeScript</span><span aria-hidden="true">SQL Server</span><span aria-hidden="true">EF Core</span><span aria-hidden="true">SignalR</span><span aria-hidden="true">Firebase</span><span aria-hidden="true">DevExpress</span><span aria-hidden="true">Azure DevOps</span><span aria-hidden="true">Anthropic API</span><span aria-hidden="true">LangChain</span><span aria-hidden="true">Python</span><span aria-hidden="true">Arabic UI / RTL</span>
+    <span>Flutter</span><span>Dart</span><span>ASP.NET Core</span><span>C#</span><span>Angular</span><span>TypeScript</span><span>SQL Server</span><span>EF Core</span><span>SignalR</span><span>Firebase</span><span>Clean Architecture</span><span>CQRS</span><span>Redis</span><span>Stripe</span><span>BLoC</span><span>Nx</span><span>DevExpress</span><span>Azure DevOps</span><span>Anthropic API</span><span>LangChain</span><span>Python</span><span>Arabic UI / RTL</span>
+    <span aria-hidden="true">Flutter</span><span aria-hidden="true">Dart</span><span aria-hidden="true">ASP.NET Core</span><span aria-hidden="true">C#</span><span aria-hidden="true">Angular</span><span aria-hidden="true">TypeScript</span><span aria-hidden="true">SQL Server</span><span aria-hidden="true">EF Core</span><span aria-hidden="true">SignalR</span><span aria-hidden="true">Firebase</span><span aria-hidden="true">Clean Architecture</span><span aria-hidden="true">CQRS</span><span aria-hidden="true">Redis</span><span aria-hidden="true">Stripe</span><span aria-hidden="true">BLoC</span><span aria-hidden="true">Nx</span><span aria-hidden="true">DevExpress</span><span aria-hidden="true">Azure DevOps</span><span aria-hidden="true">Anthropic API</span><span aria-hidden="true">LangChain</span><span aria-hidden="true">Python</span><span aria-hidden="true">Arabic UI / RTL</span>
   </div>
 </div>
 
@@ -785,7 +789,7 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
         <div class="eyebrow"><b>01</b>Mobile apps</div>
         <h2>Built for <span class="serif">the pocket.</span></h2>
       </div>
-      <p class="section-sub reveal">Cross-platform Flutter apps — from ride-hailing to healthcare, delivered end-to-end.</p>
+      <p class="section-sub reveal">Cross-platform Flutter apps — from ride-hailing and fintech to healthcare and education, delivered end-to-end.</p>
     </div>
 
     <div class="projects">
@@ -818,7 +822,7 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
           <p>Real-time ride-hailing for passengers — live map tracking, booking flow and seamless payment. Uber-style architecture in Flutter.</p>
           <div class="tags"><span class="tag">Flutter</span><span class="tag">SignalR</span><span class="tag">Maps API</span></div>
           <div class="project-actions">
-            <a href="https://github.com/oqbahdx/mashawerk_rider" target="_blank" rel="noopener" class="link-btn solid"><svg class="icon"><use href="#i-github"/></svg>Source</a>
+            <a href="https://github.com/oqbahdx/meshwark_rider" target="_blank" rel="noopener" class="link-btn solid"><svg class="icon"><use href="#i-github"/></svg>Source</a>
             <button class="link-btn" data-gallery="meshwark-rider"><svg class="icon"><use href="#i-images"/></svg>Screens</button>
           </div>
         </div>
@@ -884,6 +888,51 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
         </div>
       </article>
 
+      <article class="card project compact reveal" style="--hue:#06B6D4">
+        <div class="project-cover">
+          <span class="chip badge">Open source</span>
+          <div class="compact-icon"><svg><use href="#i-bag"/></svg></div>
+        </div>
+        <div class="project-body">
+          <h3>ShopNest Mobile</h3>
+          <p>Flutter shopping client for the ShopNest API — product catalog, cart, wishlist and checkout on a clean, feature-based architecture.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">BLoC</span><span class="tag">go_router</span><span class="tag">Dio</span></div>
+          <div class="project-actions">
+            <a href="https://github.com/oqbahdx/shopnNestMobile" target="_blank" rel="noopener" class="link-btn solid"><svg class="icon"><use href="#i-github"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project compact reveal" style="--hue:#EAB308; --d:80ms">
+        <div class="project-cover">
+          <span class="chip badge">Open source</span>
+          <div class="compact-icon"><svg><use href="#i-send"/></svg></div>
+        </div>
+        <div class="project-body">
+          <h3>Send Money</h3>
+          <p>Fintech money-transfer app with real-time updates over SignalR, local notifications and secure JWT auth — built with clean architecture.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">SignalR</span><span class="tag">BLoC</span><span class="tag">JWT</span></div>
+          <div class="project-actions">
+            <a href="https://github.com/oqbahdx/send-money-app" target="_blank" rel="noopener" class="link-btn solid"><svg class="icon"><use href="#i-github"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project compact reveal" style="--hue:#84CC16">
+        <div class="project-cover">
+          <span class="chip badge">Open source</span>
+          <div class="compact-icon"><svg><use href="#i-book"/></svg></div>
+        </div>
+        <div class="project-body">
+          <h3>Tahfeez · <span lang="ar" dir="rtl">تحفيظ</span></h3>
+          <p>Islamic education management app — Arabic-localised interface, secure authentication and a BLoC-driven clean architecture.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">BLoC</span><span class="tag">Arabic / RTL</span></div>
+          <div class="project-actions">
+            <a href="https://github.com/oqbahdx/tahfeez" target="_blank" rel="noopener" class="link-btn solid"><svg class="icon"><use href="#i-github"/></svg>Source</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -896,7 +945,7 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
         <div class="eyebrow"><b>02</b>Web platforms</div>
         <h2>Full-stack for <span class="serif">the browser.</span></h2>
       </div>
-      <p class="section-sub reveal">Enterprise dashboards, LIMS and e-invoicing backends with Angular &amp; ASP.NET.</p>
+      <p class="section-sub reveal">Enterprise dashboards, LIMS and e-invoicing backends with Angular &amp; ASP.NET — plus open-source .NET &amp; Angular systems.</p>
     </div>
 
     <div class="web-list">
@@ -951,6 +1000,58 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
           <span class="web-arrow lock"><svg class="icon"><use href="#i-lock"/></svg></span>
         </div>
       </div>
+
+      <a class="web-row reveal" href="https://github.com/oqbahdx/ShopNest" target="_blank" rel="noopener">
+        <span class="web-num">05</span>
+        <div>
+          <h3>ShopNest API</h3>
+          <p>.NET 10 e-commerce REST API on Clean Architecture &amp; CQRS — JWT identity, cart &amp; wishlist, orders and coupons, Stripe payments and Redis caching.</p>
+          <div class="tags"><span class="tag">.NET 10</span><span class="tag">CQRS / MediatR</span><span class="tag">Stripe</span><span class="tag">Redis</span></div>
+        </div>
+        <div class="web-side">
+          <span class="chip">GitHub · Open source</span>
+          <span class="web-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+        </div>
+      </a>
+
+      <a class="web-row reveal" href="https://github.com/oqbahdx/SendMoneySystem" target="_blank" rel="noopener">
+        <span class="web-num">06</span>
+        <div>
+          <h3>Send Money System</h3>
+          <p>ASP.NET Core money-transfer backend with SignalR hubs for real-time notifications — the API behind the Send Money mobile app.</p>
+          <div class="tags"><span class="tag">ASP.NET Core</span><span class="tag">SignalR</span><span class="tag">EF Core</span></div>
+        </div>
+        <div class="web-side">
+          <span class="chip">GitHub · Open source</span>
+          <span class="web-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+        </div>
+      </a>
+
+      <a class="web-row reveal" href="https://github.com/oqbahdx/GeoTeamBackend" target="_blank" rel="noopener">
+        <span class="web-num">07</span>
+        <div>
+          <h3>GeoTeam API</h3>
+          <p>Clean Architecture API for team geolocation tracking, attendance management and incident reporting.</p>
+          <div class="tags"><span class="tag">.NET 10</span><span class="tag">Clean Architecture</span><span class="tag">SQL Server</span></div>
+        </div>
+        <div class="web-side">
+          <span class="chip">GitHub · Open source</span>
+          <span class="web-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+        </div>
+      </a>
+
+      <a class="web-row reveal" href="https://github.com/oqbahdx/ecommerce-angular-nx-monorepo-" target="_blank" rel="noopener">
+        <span class="web-num">08</span>
+        <div>
+          <h3>Angular E-commerce Monorepo</h3>
+          <p>Nx workspace with a shop app, a Dockerised product API and six shared libraries — covered by Playwright end-to-end tests.</p>
+          <div class="tags"><span class="tag">Angular</span><span class="tag">Nx</span><span class="tag">TypeScript</span><span class="tag">Playwright</span></div>
+        </div>
+        <div class="web-side">
+          <span class="chip">GitHub · Open source</span>
+          <span class="web-arrow"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1049,6 +1150,8 @@ dialog[open] { animation: dlgIn .35s var(--ease); }
           <span class="tag">ZATCA</span><span class="tag">Anthropic API</span><span class="tag">LangChain</span>
           <span class="tag">RAG</span><span class="tag">Arabic UI / RTL</span><span class="tag">Python</span>
           <span class="tag">SignalR</span><span class="tag">Firebase</span><span class="tag">Git</span>
+          <span class="tag">Clean Architecture</span><span class="tag">CQRS</span><span class="tag">Redis</span>
+          <span class="tag">Stripe</span><span class="tag">BLoC</span><span class="tag">Nx</span>
         </div>
       </div>
 
